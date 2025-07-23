@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Triangular Arbitrage Scanner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Crypto Triangular Arbitrage Scanner</h1>
+            <p>Scan for profitable arbitrage opportunities in real-time</p>
+        </header>
+
+        <div class="controls">
+            <div class="form-group">
+                <label for="exchange">Select Exchange:</label>
+                <select id="exchange" class="form-control">
+                    <option value="">Loading exchanges...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="minProfit">Minimum Profit (%):</label>
+                <input type="number" id="minProfit" class="form-control" value="0.1" step="0.1" min="0">
+            </div>
+
+            <button id="scanBtn" class="btn btn-primary" disabled>Start Scan</button>
+            <button id="autoScanBtn" class="btn btn-secondary" disabled>Auto Scan (10s)</button>
+        </div>
+
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <h3>Total Pairs</h3>
+                <span id="totalPairs">0</span>
+            </div>
+            <div class="stat-card">
+                <h3>Opportunities</h3>
+                <span id="totalOpportunities">0</span>
+            </div>
+            <div class="stat-card">
+                <h3>Scan Time</h3>
+                <span id="scanTime">0ms</span>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Scanning for opportunities...</p>
+        </div>
+
+        <div class="opportunities" id="opportunities">
+            <h2>Arbitrage Opportunities</h2>
+            <div id="opportunitiesList"></div>
+        </div>
+
+        <div class="error" id="error" style="display: none;"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
